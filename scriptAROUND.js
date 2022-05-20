@@ -1,64 +1,17 @@
-let questions = [
-    {
-        "question": "Wer hat HTML erfunden?",
-        "answer_1": "Robbie Williams",
-        "answer_2": "Lady Gaga",
-        "answer_3": "Tim Berners-Lee",
-        "answer_4": "Justin Bieber",
-        "right_answer": 3
-    },
-
-    {
-        "question": "Welche Programmiersprache sollte man als erstes lernen?",
-        "answer_1": "Pyton",
-        "answer_2": "HTML/CSS",
-        "answer_3": "Java",
-        "answer_4": "C++",
-        "right_answer": 2
-    },
-
-    {
-        "question": "Welche Programmiersprache ist für den Style-Bereich der Webseite zuständig?",
-        "answer_1": "CSS",
-        "answer_2": "HTML",
-        "answer_3": "JavaScript",
-        "answer_4": "PHP",
-        "right_answer": 1
-    },
-
-    {
-        "question": "In welchen HTML-Bereich werden die Metadaten eingetragen?",
-        "answer_1": "Body",
-        "answer_2": "Script",
-        "answer_3": "Header",
-        "answer_4": "Head",
-        "right_answer": 4
-    },
-
-    {
-        "question": "Wo sollte man seine Projekte abspeichern?",
-        "answer_1": "Cloud",
-        "answer_2": "Google-Drive",
-        "answer_3": "Github",
-        "answer_4": "Lokaler Datenträger",
-        "right_answer": 3
-    }
-];
-
 let currentQuestion = 0;
 let rightQuestions = 0;
 let AUDIO_SUCCESS = new Audio('audio/right.mp3');
 let AUDIO_FAIL = new Audio('audio/wrong.mp3');
 
-
 function init() {
-    document.getElementById('all-questions').innerHTML = questions.length;      // Fragenanzahl von question[....]
+    document.getElementById('all-questions').innerHTML = questionsAROUND.length;
 
     showElements();
 }
 
 
 function showElements() {
+    let question = questionsAROUND[currentQuestion];
 
     if (gameIsOver()) {      // wenn die letze Frage erreicht wurde
         showEndScreen();
@@ -70,7 +23,7 @@ function showElements() {
 
 
 function gameIsOver() {
-    return currentQuestion >= questions.length;
+    return currentQuestion >= questionsAROUND.length;
 }
 
 
@@ -78,22 +31,24 @@ function showEndScreen() {
     document.getElementById('end-screen').style = '';   // Das Style-Tag "display-none" wird entfernt und durch nichts ersetzt 
     document.getElementById('question-body').style = 'display: none';
 
-    document.getElementById('amount-of-questions').innerHTML = questions.length;
+    document.getElementById('amount-of-questions').innerHTML = questionsAROUND.length;
     document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
     document.getElementById('header-img').src = 'img/end.png';
+    document.getElementById('progress-bar').innerHTML = `100%`;
+    document.getElementById('progress-bar').style.width = `100%`;
 }
 
 
 function updateProgressBar() {
-    let percent = (currentQuestion + 1) / questions.length;     // Berechnung der Prozentzahl für eine Frage
+    let percent = currentQuestion / questionsAROUND.length;     // Berechnung der Prozentzahl für eine Frage
     percent = Math.round(percent * 100);        // Math.round - Zahlrundung
     document.getElementById('progress-bar').innerHTML = `${percent} %`;     // Prozentprogress in die Bar einfügen
-    document.getElementById('progress-bar').style = `width: ${percent}%`;   // Breite der Bar je nach Prozentfortschritt
+    document.getElementById('progress-bar').style.width = `${percent}%`;   // Breite der Bar je nach Prozentfortschritt
 }
 
 
 function loadQuestionAndAnswer() {
-    let question = questions[currentQuestion];
+    let question = questionsAROUND[currentQuestion];
     document.getElementById('question-number').innerHTML = currentQuestion + 1;     //currentQuestion fängt bei 0 an => daher +1, um die richtige Questions-Number 
     document.getElementById('questiontext').innerHTML = question['question'];
     document.getElementById('answer_1').innerHTML = question['answer_1'];
@@ -104,7 +59,7 @@ function loadQuestionAndAnswer() {
 
 
 function answer(selection) {
-    let question = questions[currentQuestion];
+    let question = questionsAROUND[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);   // Es wird auf die Nummer des Arrays zugegriffen
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
@@ -122,7 +77,7 @@ function answer(selection) {
 
 
 function rightAnswerSelected(selectedQuestionNumber) {
-    let question = questions[currentQuestion];
+    let question = questionsAROUND[currentQuestion];
     return selectedQuestionNumber == question['right_answer'];
 }
 
