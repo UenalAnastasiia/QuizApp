@@ -1,5 +1,6 @@
 body {
     background-color: #f4edff !important;   
+    margin: 0;
 }
 
 .container {
@@ -46,7 +47,7 @@ body {
 
 .button-row {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 24px;
 }
 
@@ -60,7 +61,7 @@ nav {
     left: 0;
     height: 100vh;
     background-color: #7575f3;
-    width: 15%;
+    width: 10%;
     padding-top: 24px;
 }
 
@@ -76,6 +77,10 @@ nav {
     flex-direction: column;
     align-items: center;
     padding-top: 12px;
+}
+
+.logo-box a {
+    cursor: pointer; 
 }
 
 .logo-box img {
@@ -111,11 +116,11 @@ nav {
 }
 
 .left-section {
-    width: 15%;
+    width: 10%;
 }
 
 .right-section {
-    width: 85%;
+    width: 90%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -127,6 +132,8 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .welcome-box img {
@@ -137,9 +144,157 @@ nav {
 }
 
 .welcome-box span {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     padding-left: 30px;
+    text-align: center;
 }
 
+.start-btn {
+    margin-top: 28px;
+    margin-left: 28px;
+    background-color: #0000ffc7 !important;
+    color: white !important;
+    font-size: 32px !important;
+}
+
+.start-btn:hover {
+    background-color: darkred !important;
+}
+
+.margin-btn {
+    margin-right: 10px;
+}
+
+.menu-box-links {
+    z-index: 1;
+}
+
+.menu-btn {
+    width: 150px;
+    font-size: 46px !important;
+}
+
+.right-bg {
+    position: absolute;
+    opacity: 0.2;
+} 
+
+.progress {
+    margin-top: 12px;
+}
+
+.mobil-menu {
+    display: none;
+}
+
+/* Responsive menu */
+
+.hide {
+    display: none;
+}
+
+.display-none {
+    display: none !important;
+}
+
+@media (max-width: 1000px) {
+    .left-section, nav {
+        width: 15%;
+    }
+
+    .right-section {
+        width: 75%;
+    }
+
+    .quiz-card {
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 700px) { 
+
+    .hide {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .nav-menu-img {
+        height: 32px !important;
+        width: 32px;
+        cursor: pointer;
+    }
+
+    .nav-menu-img:hover {
+        opacity: 0.5;
+    }
+
+    .mobil-menu a {
+        text-decoration: none;
+        margin-right: 10px;
+        margin-bottom: 12px;
+        margin-left: 0;
+    }
+
+    .links a:hover {
+        color: #ba3228;
+        background-color: #ffffffa6;
+        border-left: 6px solid white;
+    }
+
+    .mobil-menu {
+        display: block;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        height: 95vh;
+        z-index: 2;
+        padding-left: 8px;
+        background-color: #7575f3;
+        transform: translateX(200px);
+        transition: all 125ms ease-in-out;
+    }
+
+    .show-menu {
+        transform: translateX(0);
+    }
+
+    .close-menu {
+        height: 24px !important;
+        width: 24px;
+        margin-left: 35px;
+        cursor: pointer;
+    }
+
+    .close-menu:hover {
+        opacity: 0.3 !important;
+    }
+
+    .quiz-card {
+        margin-left: 0;
+    }
+
+    .main-left {
+        display: none;
+    }
+
+    .main-right {
+        width: 100%;
+    }
+
+    .main-mobil {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .welcome-box span {
+        padding-left: 0;
+    }
+}
 

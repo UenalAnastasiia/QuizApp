@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="img/png" href="img/favicon.png">
+    <title>Around-Quiz</title>
 
     <link rel="stylesheet" href="./style.css">
     <script src="./scriptAROUND.js"></script>
@@ -33,10 +34,28 @@
                 <a href="index_html.html">HTML</a>
                 <a href="index_css.html">CSS</a>
                 <a href="index_js.html">JS</a>
-                <a href="index_around.html">All</a>
+                <a id="around-link" href="index_around.html">All</a>
             </div>
         </div>
     </nav>
+
+    <img onclick="showMenu()" class="nav-menu-img hide" src="img/menu.png">
+    <div id="menu" class="mobil-menu display-none">
+        <div class="nav-box">
+            <div class="logo-box">
+                <a class="mobil-logo-link" href="index.html"><img src="img/icon.png"></a>
+                <h3>QUIZ APP</h3>
+            </div>
+
+            <div class="links">
+                <a href="index_html.html">HTML</a>
+                <a href="index_css.html">CSS</a>
+                <a href="index_js.html">JS</a>
+                <a id="around-link" href="index_around.html">All</a>
+            </div>
+            <img src="img/arrow.png" onclick="hideMenu()" class="close-menu">
+        </div>
+    </div>
 
     <div class="container">
         <div class="card quiz-card">
@@ -56,8 +75,9 @@
                 </div>
 
                 <div class="button-row">
-                    <button onclick="restartGame()" type="button" class="btn btn-outline-primary">Erneut
+                    <button onclick="restartGame()" type="button" class="btn btn-outline-primary margin-btn">Erneut
                         spielen</button>
+                    <a href="menu.html"><button type="button" class="btn btn-outline-primary">Quiz auswählen</button></a>
                 </div>
 
             </div>

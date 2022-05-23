@@ -5,6 +5,7 @@ let AUDIO_FAIL = new Audio('audio/wrong.mp3');
 
 function init() {
     document.getElementById('all-questions').innerHTML = questionsAROUND.length;
+    document.getElementById('around-link').style = 'color: #ba3228; background-color: #ffffffa6; border-left: 6px solid white';
 
     showElements();
 }
@@ -112,3 +113,15 @@ function restartGame() {        // Spiel neu laden
 
     init();
 }
+
+
+// Responsive Menu
+function showMenu() {
+    document.getElementById('menu').classList.add('show-menu');
+    document.getElementById('menu').classList.remove('display-none');
+  }
+  
+  function hideMenu() {
+    document.getElementById('menu').classList.remove('show-menu');
+    document.getElementById('menu').classList.add('display-none');
+  }
